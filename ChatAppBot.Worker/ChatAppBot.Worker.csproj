@@ -16,9 +16,13 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.4" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ChatAppBot.ApplicationServices\ChatAppBot.ApplicationServices.csproj" />
     <ProjectReference Include="..\ChatAppBot.CrossCutting\ChatAppBot.CrossCutting.csproj" />
+    <ProjectReference Include="..\ChatAppBot.QueueConsumer\ChatAppBot.QueueConsumer.csproj" />
+    <ProjectReference Include="..\ChatAppBot.ThirdPartyIntegrationServices\ChatAppBot.ThirdPartyIntegrationServices.csproj" />
   </ItemGroup>
 </Project>

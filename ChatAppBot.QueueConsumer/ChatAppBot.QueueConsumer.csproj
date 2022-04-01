@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChatAppBot.DataContracts\ChatAppBot.DataContracts.csproj" />
-    <ProjectReference Include="..\ChatAppBot.ThirdPartyIntegrationServices\ChatAppBot.ThirdPartyIntegrationServices.csproj" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChatAppBot.ApplicationServices\ChatAppBot.ApplicationServices.csproj" />
   </ItemGroup>
 
 </Project>

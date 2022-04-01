@@ -1,17 +1,29 @@
+using ChatAppBot.ApplicationServices;
 using ChatAppBot.CrossCutting;
+using ChatAppBot.QueueConsumer.Brokers.RabbitMQ;
+using ChatAppBot.ThirdPartyIntegrationServices.ThirdParty.Stooq;
 using ChatAppBot.Worker;
+using ChatAppBot.Worker.RabbitMQ;
 
 IHost host = Host.CreateDefaultBuilder(args)
     .UseWindowsService(options =>
     {
         options.ServiceName = "ChatAppBot";
     })
+    .ConfigureAppConfiguration(LoadConfiguration)
     .ConfigureServices(services =>
     {
         services.AddHostedService<Worker>();
         services.AddHttpClient();
+
+        services.AddScoped<IMessageReceiver, MessageReceiver>();
+
+        services.AddScoped<IStockQuoteService, StockQuoteService>();
+
+        services.AddScoped<IStooqIntegrationService, StooqIntegrationService>();
+
+        services.AddScoped<IRabbitMQReceiver>(rabbitReceiver => new RabbitMQReceiver(AppConfiguration.RabbitMqConfiguration));
     })
-    .ConfigureAppConfiguration(LoadConfiguration)
     .Build();
 
 static void LoadConfiguration(HostBuilderContext ctx, IConfigurationBuilder config)
@@ -29,14 +41,13 @@ static void LoadConfiguration(HostBuilderContext ctx, IConfigurationBuilder conf
     AppConfiguration.Settings.StooqApiBaseAddress = configuration.GetValue<string>("Settings:StooqApiBaseAddress");
     AppConfiguration.Settings.StooqApiTimeout = TimeSpan.FromSeconds(configuration.GetValue<int>("Settings:StooqApiTimeout"));
 
-
     AppConfiguration.RabbitMqConfiguration = new RabbitMqConfiguration()
     {
-        HostName = configuration.GetValue<string>("RabbitMq:HostName"),
-        UserName = configuration.GetValue<string>("RabbitMq:UserName"),
-        Password = configuration.GetValue<string>("RabbitMq:Password"),
-        VirtualHost = configuration.GetValue<string>("RabbitMq:VirtualHost"),
-        Port = configuration.GetValue<int>("RabbitMq:Port")
+        HostName = configuration.GetValue<string>("Settings:RabbitMq:HostName"),
+        UserName = configuration.GetValue<string>("Settings:RabbitMq:UserName"),
+        Password = configuration.GetValue<string>("Settings:RabbitMq:Password"),
+        VirtualHost = configuration.GetValue<string>("Settings:RabbitMq:VirtualHost"),
+        Port = configuration.GetValue<int>("Settings:RabbitMq:Port")
     };
 }
 
