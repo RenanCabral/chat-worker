@@ -1,5 +1,5 @@
 ﻿using ChatAppBot.DataContracts;
-using ChatAppBot.ThirdPartyIntegrationServices.ThirdParty.Stooq;
+using ChatAppBot.IntegrationServices.ThirdParty.Stooq;
 
 namespace ChatAppBot.ApplicationServices
 {
@@ -8,9 +8,7 @@ namespace ChatAppBot.ApplicationServices
         private readonly IStooqIntegrationService stooqIntegrationService;
 
         public StockQuoteService(IStooqIntegrationService stooqIntegrationService)
-        {
-            this.stooqIntegrationService = stooqIntegrationService;
-        }
+            => (this.stooqIntegrationService) = (stooqIntegrationService);
 
         public async Task<StockQuote> GetStockQuoteAsync(string stockCode)
         {
@@ -21,10 +19,8 @@ namespace ChatAppBot.ApplicationServices
                 var stockQuote = new StockQuote()
                 {
                     Code = stockQuoteResponse.Symbol,
-                    Value = decimal.Parse(stockQuoteResponse.Open)
+                    Value = decimal.Parse(stockQuoteResponse.Close)
                 };
-                
-                //TODO: enqueue message
 
                 return stockQuote;
             }

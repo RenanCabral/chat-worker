@@ -1,6 +1,6 @@
 ﻿namespace ChatAppBot.Worker.RabbitMQ
 {
-    public interface IMessageReceiver
+    public interface IMessageQueueManager
     {
         public void ReadMessagesFromQueue(string queue);
     }

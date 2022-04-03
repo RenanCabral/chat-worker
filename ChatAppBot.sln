@@ -9,15 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppBot.ApplicationServi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppBot.DataContracts", "ChatAppBot.DataContracts\ChatAppBot.DataContracts.csproj", "{4EBC126B-42B1-4CD0-B72C-43AEB2BB0F2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppBot.ThirdPartyIntegrationServices", "ChatAppBot.ThirdPartyIntegrationServices\ChatAppBot.ThirdPartyIntegrationServices.csproj", "{A825E97F-5C0D-4EEB-9123-00A8064FD4A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppBot.IntegrationServices", "ChatAppBot.IntegrationServices\ChatAppBot.IntegrationServices.csproj", "{A825E97F-5C0D-4EEB-9123-00A8064FD4A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppBot.CrossCutting", "ChatAppBot.CrossCutting\ChatAppBot.CrossCutting.csproj", "{965783EA-6592-4B58-B784-A5C2B1AA874D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppBot.CrossCutting", "ChatAppBot.CrossCutting\ChatAppBot.CrossCutting.csproj", "{965783EA-6592-4B58-B784-A5C2B1AA874D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppBot.ThirdPartyIntegrationServices.Tests", "ChatAppBot.ThirdPartyIntegrationServices.Tests\ChatAppBot.ThirdPartyIntegrationServices.Tests.csproj", "{C0EA75DE-9EC9-4D8C-9EE5-8E064BF6E25C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppBot.IntegrationServices.Tests", "ChatAppBot.IntegrationServices.Tests\ChatAppBot.IntegrationServices.Tests.csproj", "{C0EA75DE-9EC9-4D8C-9EE5-8E064BF6E25C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CE396AF7-951C-4514-8061-8D7D5B1297CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatAppBot.QueueConsumer", "ChatAppBot.QueueConsumer\ChatAppBot.QueueConsumer.csproj", "{94385604-9514-4710-8D9F-5B9F1C91DC51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatAppBot.MessageQueue", "ChatAppBot.MessageQueue\ChatAppBot.MessageQueue.csproj", "{94385604-9514-4710-8D9F-5B9F1C91DC51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

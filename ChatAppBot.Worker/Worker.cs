@@ -17,7 +17,7 @@ namespace ChatAppBot.Worker
             {
                 using (IServiceScope scope = this.serviceProvider.CreateScope())
                 {
-                    IMessageReceiver messageReceiver = scope.ServiceProvider.GetRequiredService<IMessageReceiver>();
+                    IMessageQueueManager messageReceiver = scope.ServiceProvider.GetRequiredService<IMessageQueueManager>();
 
                     messageReceiver.ReadMessagesFromQueue("quotation-queue");
                 }

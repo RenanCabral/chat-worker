@@ -1,6 +1,6 @@
 ﻿using ChatAppBot.DataContracts.ThirdParty.Stooq;
 
-namespace ChatAppBot.ThirdPartyIntegrationServices.ThirdParty.Stooq
+namespace ChatAppBot.IntegrationServices.ThirdParty.Stooq
 {
     public interface IStooqIntegrationService
     {

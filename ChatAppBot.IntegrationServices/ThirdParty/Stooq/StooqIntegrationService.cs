@@ -1,8 +1,8 @@
 ﻿using ChatAppBot.CrossCutting;
 using ChatAppBot.DataContracts.ThirdParty.Stooq;
-using ChatAppBot.ThirdPartyIntegrationServices.ThirdParty.Stooq.Mappers;
+using ChatAppBot.IntegrationServices.ThirdParty.Stooq.Mappers;
 
-namespace ChatAppBot.ThirdPartyIntegrationServices.ThirdParty.Stooq
+namespace ChatAppBot.IntegrationServices.ThirdParty.Stooq
 {
     public class StooqIntegrationService : IStooqIntegrationService
     {

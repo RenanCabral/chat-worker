@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChatAppBot.ThirdPartyIntegrationServices\ChatAppBot.ThirdPartyIntegrationServices.csproj" />
+    <ProjectReference Include="..\ChatAppBot.IntegrationServices\ChatAppBot.IntegrationServices.csproj" />
   </ItemGroup>
 
 </Project>

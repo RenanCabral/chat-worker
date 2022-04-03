@@ -1,7 +1,7 @@
 using ChatAppBot.ApplicationServices;
 using ChatAppBot.CrossCutting;
 using ChatAppBot.QueueConsumer.Brokers.RabbitMQ;
-using ChatAppBot.ThirdPartyIntegrationServices.ThirdParty.Stooq;
+using ChatAppBot.IntegrationServices.ThirdParty.Stooq;
 using ChatAppBot.Worker;
 using ChatAppBot.Worker.RabbitMQ;
 
@@ -16,13 +16,15 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddHostedService<Worker>();
         services.AddHttpClient();
 
-        services.AddScoped<IMessageReceiver, MessageReceiver>();
+        services.AddScoped<IMessageQueueManager, MessageQueueManager>();
 
         services.AddScoped<IStockQuoteService, StockQuoteService>();
 
         services.AddScoped<IStooqIntegrationService, StooqIntegrationService>();
 
-        services.AddScoped<IRabbitMQReceiver>(rabbitReceiver => new RabbitMQReceiver(AppConfiguration.RabbitMqConfiguration));
+        services.AddScoped<IConsumer>(rabbitReceiver => new Consumer(AppConfiguration.RabbitMqConfiguration));
+
+        services.AddScoped<IProducer>(rabbitPublisher => new Producer(AppConfiguration.RabbitMqConfiguration));
     })
     .Build();
 

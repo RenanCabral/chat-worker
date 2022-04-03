@@ -1,5 +1,5 @@
 using ChatAppBot.CrossCutting;
-using ChatAppBot.ThirdPartyIntegrationServices.ThirdParty.Stooq;
+using ChatAppBot.IntegrationServices.ThirdParty.Stooq;
 using Moq;
 using RichardSzalay.MockHttp;
 using System;
@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Http;
 using Xunit;
 
-namespace ChatAppBot.ThirdPartyIntegrationServices.Tests
+namespace ChatAppBot.IntegrationServices.Tests.ThirdParty.Stooq
 {
     public class StooqIntegrationServiceTest
     {

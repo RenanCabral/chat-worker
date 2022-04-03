@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ChatAppBot.DataContracts\ChatAppBot.DataContracts.csproj" />
-    <ProjectReference Include="..\ChatAppBot.ThirdPartyIntegrationServices\ChatAppBot.ThirdPartyIntegrationServices.csproj" />
+    <ProjectReference Include="..\ChatAppBot.IntegrationServices\ChatAppBot.IntegrationServices.csproj" />
   </ItemGroup>
 
 </Project>

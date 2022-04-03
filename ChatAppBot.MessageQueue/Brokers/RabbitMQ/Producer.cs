@@ -1,14 +1,14 @@
 ﻿using ChatAppBot.CrossCutting;
 using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
+using System.Text;
 
 namespace ChatAppBot.QueueConsumer.Brokers.RabbitMQ
 {
-    public class RabbitMQReceiver : IRabbitMQReceiver
+    public class Producer : IProducer
     {
         private readonly ConnectionFactory connectionFactory;
 
-        public RabbitMQReceiver(RabbitMqConfiguration config)
+        public Producer(RabbitMqConfiguration config)
         {
             this.connectionFactory = new ConnectionFactory()
             {
@@ -20,18 +20,17 @@ namespace ChatAppBot.QueueConsumer.Brokers.RabbitMQ
             };
         }
 
-        public void ReadMessages(string queue, EventHandler<BasicDeliverEventArgs> eventHandler)
+        public void Publish(string exchange, string message)
         {
             using (var connection = this.connectionFactory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())
                 {
-                    channel.QueueDeclare(queue: queue, durable: false, exclusive: false, autoDelete: false, arguments: null);
+                    channel.ExchangeDeclare(exchange: exchange, type: ExchangeType.Direct);
 
-                    var consumer = new EventingBasicConsumer(channel);
-                    consumer.Received += eventHandler;
+                    var body = Encoding.UTF8.GetBytes(message);
 
-                    channel.BasicConsume(queue: queue, autoAck: true, consumer: consumer);
+                    channel.BasicPublish(exchange: exchange, routingKey: "", basicProperties: null, body: body);
                 }
             }
         }

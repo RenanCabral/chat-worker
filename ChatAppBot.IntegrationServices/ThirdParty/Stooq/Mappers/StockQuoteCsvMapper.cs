@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChatAppBot.ThirdPartyIntegrationServices.ThirdParty.Stooq.Mappers
+namespace ChatAppBot.IntegrationServices.ThirdParty.Stooq.Mappers
 {
     public static class StockQuoteCsvMapper
     {

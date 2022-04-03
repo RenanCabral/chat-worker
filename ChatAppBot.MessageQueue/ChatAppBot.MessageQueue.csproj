@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChatAppBot.ApplicationServices\ChatAppBot.ApplicationServices.csproj" />
+    <ProjectReference Include="..\ChatAppBot.CrossCutting\ChatAppBot.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>
