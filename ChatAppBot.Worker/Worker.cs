@@ -19,7 +19,7 @@ namespace ChatAppBot.Worker
                 {
                     IMessageQueueManager messageReceiver = scope.ServiceProvider.GetRequiredService<IMessageQueueManager>();
 
-                    messageReceiver.ReadMessagesFromQueue("quotation-queue");
+                    messageReceiver.ReadMessagesFromQueue("chat-app-bot-queue");
                 }
 
                 logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);

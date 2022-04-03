@@ -31,6 +31,9 @@ namespace ChatAppBot.QueueConsumer.Brokers.RabbitMQ
                     var consumer = new EventingBasicConsumer(channel);
                     consumer.Received += eventHandler;
 
+                    // accept only one unack-ed message at a time
+                    channel.BasicQos(prefetchSize: 0, prefetchCount: 1, global: false);
+
                     channel.BasicConsume(queue: queue, autoAck: true, consumer: consumer);
                 }
             }
