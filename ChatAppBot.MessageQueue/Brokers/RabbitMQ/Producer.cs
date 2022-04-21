@@ -26,7 +26,7 @@ namespace ChatAppBot.QueueConsumer.Brokers.RabbitMQ
             {
                 using (var channel = connection.CreateModel())
                 {
-                    channel.ExchangeDeclare(exchange: exchange, type: ExchangeType.Direct);
+                    channel.ExchangeDeclare(exchange: exchange, type: ExchangeType.Direct, durable: true);
 
                     var body = Encoding.UTF8.GetBytes(message);
 
