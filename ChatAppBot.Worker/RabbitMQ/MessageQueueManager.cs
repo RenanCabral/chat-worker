@@ -28,9 +28,12 @@ namespace ChatAppBot.Worker.RabbitMQ
 
             var stockQuote = this.stockQuoteService.GetStockQuoteAsync(stockCode).Result;
 
-            var message = FormatMessageToPublish(stockQuote);
+            if (stockQuote != null)
+            {
+                var message = FormatMessageToPublish(stockQuote);
 
-            this.producer.Publish("chat-app-exchange", message);
+                this.producer.Publish("chat-app-exchange", message);
+            }
         }
 
         private string ReadMessageFromBody(ReadOnlyMemory<byte> body)
@@ -40,7 +43,7 @@ namespace ChatAppBot.Worker.RabbitMQ
 
         private string FormatMessageToPublish(StockQuote stockQuote)
         {
-            return $"{stockQuote.Code} quote is { string.Format("{0:C}", stockQuote.Value)} per share.";
+            return $"{stockQuote.Code} quote is {string.Format("{0:C}", stockQuote.Value)} per share.";
         }
 
         #endregion

@@ -26,7 +26,8 @@ namespace ChatAppBot.ApplicationServices
             }
             catch (Exception)
             {
-                throw;
+                //TODO: some log here
+                return null;
             }
         }
     }
